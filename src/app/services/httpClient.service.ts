@@ -47,7 +47,8 @@ export class HttpClientService {
         console.log(body);
         // console.log(this.apiAdd + `api/v1/bikes/`, body,{'headers':headers});
         return this.http.post(this.apiAdd + `api/v1/bikes/`, body,{'headers':headers})
-        .toPromise().then((data: any) => { console.log(data)});
+        .toPromise();
+        // .then((data: any) => { console.log(data)})
     }
 }
 

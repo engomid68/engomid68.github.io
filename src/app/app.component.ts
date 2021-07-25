@@ -21,6 +21,22 @@ export class AppComponent {
   public createdAt: string = '';
 //***********ngModel */
 
+  AddingNewRecord(e:Event){
+    let u: bike = {
+      id: this.idM,
+      createdAt: this.createdAt,
+      name: this.name,
+      color: this.color,
+      country: this.country
+    };
+    this.httpClientService.postBike(this.idM,u)
+    .then((result) => {
+      let idx = this.bikes.push(result);
+      console.log(result);
+      alert("New Record added successfully id ="+ this.idM);
+    });
+  }
+  
   Finalputmethod(e:Event) {
     let u: bike = {
       id: this.idM,
@@ -36,9 +52,10 @@ export class AppComponent {
       console.log(result);
       this.bikes.splice(idx,1,result);
       alert("data edit successfully id ="+ this.idM);
+      (e.target as HTMLInputElement).disabled = false;
+      (e.target as HTMLInputElement).value = 'EDIT';
     }, (error) => {
       console.log('HI'); 
-      this.httpClientService.postBike(this.idM,u);
     });
   }
   

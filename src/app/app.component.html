@@ -23,7 +23,8 @@
       <input  type="text" class="form-control" placeholder="" [(ngModel)]="color" [ngModelOptions]="{standalone: true}">
     </div>
     <br/>
-    <button type="submit" class="btn btn-primary" (click)="Finalputmethod($event)" >Edit & Add User</button>
+    <button type="submit" class="btn btn-primary" (click)="Finalputmethod($event)" >EDIT</button>
+    <button type="submit" class="btn btn-primary" (click)="AddingNewRecord($event)" [style.margin-left.px]="15">Add NewRecord</button>
   </div><!-- (click)="AddingNewUser(id,createdAt,name,country,color)" -->
 </form>
 <br/>
