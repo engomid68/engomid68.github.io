@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientService } from './services/httpClient.service';
-// import { RestService } from './rest.service';
 
-// export function MyApiServiceProduction(): RestService{
-//   return new RestService();
-// }
 
 @NgModule({
   
@@ -20,7 +16,8 @@ import { HttpClientService } from './services/httpClient.service';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpClientService

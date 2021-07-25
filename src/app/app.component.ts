@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { bike } from './models';
 import { HttpClientService } from './services/httpClient.service';
 
@@ -20,6 +21,8 @@ export class AppComponent {
   public country: string = '';
   public createdAt: string = '';
 //***********ngModel */
+  myFormControl = new FormControl();
+  // public formGroupAdd: FormGroup;
 
   AddingNewRecord(e:Event){
     let u: bike = {
@@ -33,7 +36,7 @@ export class AppComponent {
     .then((result) => {
       let idx = this.bikes.push(result);
       console.log(result);
-      alert("New Record added successfully id ="+ this.idM);
+      alert("New Record added successfully id ="+ result.id);
     });
   }
   
@@ -103,5 +106,13 @@ export class AppComponent {
       this.isLoading = false;
       // any
     });
+    this.newFormControl();
 	}
+  newFormControl(){
+    let formGroupAdd = new FormGroup({
+      'createdAt': new FormControl('', [ Validators.required ]),
+      'name': new FormControl('', [ Validators.required ]),
+      'country': new FormControl('', [ Validators.required ]),
+      'color': new FormControl('', [ Validators.required ])})
+  }
 }
